@@ -9,8 +9,8 @@ def patch_config(cfg):
     cfg = Config(cfg)
 
     try:
-        access_key = cfg['minio']['access_key']
-        secret_key = cfg['minio']['secret_key']
+        access_key = cfg.config['minio']['access_key']
+        secret_key = cfg.config['minio']['secret_key']
     except KeyError:
         sys.stderr.write('WARNING! Misconfiguration: section [minio] of config.ini doesn\'t contain access_key or secret_key.')
         return cfg
@@ -21,9 +21,10 @@ def patch_config(cfg):
             minio_cfg = {k: v for k, v in minio_cfg}
 
         try:
-            access_key = minio_cfg['ACCESS_KEY']
-            secret_key = minio_cfg['SECRET_KEY']
+            cfg.config['minio']['access_key'] = minio_cfg['ACCESS_KEY']
+            cfg.config['minio']['secret_key'] = minio_cfg['SECRET_KEY']
         except KeyError:
             sys.stderr.write('WARNING! Misconfiguration: minio.env doesn\'t contain ACCESS_KEY or SECRET_KEY.')
 
     return cfg
+
