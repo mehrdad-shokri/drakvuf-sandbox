@@ -27,4 +27,3 @@ def patch_config(cfg):
             sys.stderr.write('WARNING! Misconfiguration: minio.env doesn\'t contain ACCESS_KEY or SECRET_KEY.')
 
     return cfg
-
