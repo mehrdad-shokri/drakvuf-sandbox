@@ -2,6 +2,7 @@
 
 import urllib3
 from minio import Minio
+from karton2 import Config
 from karton2.services.system import SystemService
 from drakcore.util import get_config
 

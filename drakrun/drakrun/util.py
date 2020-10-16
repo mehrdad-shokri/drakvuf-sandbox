@@ -1,5 +1,8 @@
 import base64
 import os
+import sys
+
+from karton2 import Config
 
 
 def patch_config(cfg):
@@ -24,4 +27,3 @@ def patch_config(cfg):
             sys.stderr.write('WARNING! Misconfiguration: minio.env doesn\'t contain ACCESS_KEY or SECRET_KEY.')
 
     return cfg
-

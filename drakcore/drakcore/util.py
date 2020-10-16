@@ -1,5 +1,6 @@
 import base64
 import os
+import sys
 
 from karton2 import Config
 
